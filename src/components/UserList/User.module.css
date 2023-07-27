@@ -1,0 +1,32 @@
+.user {
+    display: flex;
+    height: 4vh;
+    background-color: rgba(255, 255, 255, 0.15);
+    width: 100%;
+    padding: 0.2rem 1.5rem;
+    font-size: 2vh;
+    color: rgba(255, 255, 255, 0.6);
+    align-items: center;
+}
+.user:first-of-type {
+    border-radius: 10px 10px 0 0;
+    padding-top: 1vh;
+}
+.user:last-of-type {
+    border-radius: 0 0 10px 10px;
+    padding-bottom: 1vh;
+}
+.icon {
+    height: 2vh;
+    aspect-ratio: 1/1;
+    filter: invert();
+    opacity: 0.6;
+}
+.icon:not(:last-of-type) {
+    margin-right: 2vh;
+}
+
+/*  MARGIN-LEFT PUSHES THE EDIT ICON AND EVERYTHING ON ITS RIGHT TO THE VERY RIGHT SIDE */
+.edit {
+    margin-left: auto;
+}

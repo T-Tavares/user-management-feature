@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import Card from './components/UI/Card';
+import UserForm from './components/UserForm/UserForm';
+import Header from './components/Header/Header';
+import User from './components/UserList/User';
+
+import style from './App.module.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className={style.app}>
+            <Header />
+            <Card>
+                {' '}
+                <UserForm isOpen={false} />
+            </Card>
+            <Card>
+                {' '}
+                <UserForm />
+            </Card>
+            <Card>
+                <User></User>
+                <User></User>
+                <User></User>
+                <User></User>
+            </Card>
+            {/* UserList */}
+            {/* UserEdit */}
+        </div>
+    );
 }
 
 export default App;

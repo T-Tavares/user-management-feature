@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    --dark-blue: #00457e;
+    --deep-blue: #2e5e8c;
+    --moderate-blue: #527da9;
+    --light-blue: #779cc6;
+    --very-light-blue: #a1bbd9;
+}
+
+body {
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.app {
+    height: 80vh;
+    aspect-ratio: 1/1;
+    background-color: var(--moderate-blue);
+    border-radius: 20px;
+    border: 1px solid var(--dark-blue);
+    padding: 3vh;
+}

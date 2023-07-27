@@ -1,0 +1,23 @@
+header {
+    display: flex;
+
+    background-image: url('../../assets/header.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    height: 8vh;
+
+    align-items: center;
+    justify-content: center;
+
+    margin: -3vh -3vh 3vh -3vh;
+    border-radius: 20px 20px 0 0;
+    height: 15vh;
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 6vh;
+    color: #fff;
+}
