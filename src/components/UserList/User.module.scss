@@ -19,7 +19,7 @@
 .icon {
     height: 2vh;
     aspect-ratio: 1/1;
-    filter: invert();
+    filter: invert(1);
     opacity: 0.6;
 }
 .icon:not(:last-of-type) {

@@ -3,7 +3,7 @@ import UserForm from './components/UserForm/UserForm';
 import Header from './components/Header/Header';
 import User from './components/UserList/User';
 
-import style from './App.module.css';
+import style from './App.module.scss';
 
 function App() {
     return (

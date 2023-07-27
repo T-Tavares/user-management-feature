@@ -1,4 +1,4 @@
-import style from './UserForm.module.css';
+import style from './UserForm.module.scss';
 
 export default function UserForm(props) {
     if (props.isOpen === false) {

@@ -1,4 +1,4 @@
-import style from './User.module.css';
+import style from './User.module.scss';
 import userIcon from '../../assets/person-badge.svg';
 import editIcon from '../../assets/pencil-square.svg';
 import deleteIcon from '../../assets/x-circle.svg';
