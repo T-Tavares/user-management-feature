@@ -24,6 +24,15 @@ export default function EditUserForm(props) {
             email: editEmail,
         };
 
+        // -------------- ERROR CATCH TO RENDER ERROR POPUP --------------- //
+
+        if (updatedUserObj.name.trim().length <= 0) return props.onInputError('Please input a valid Name.');
+        if (updatedUserObj.age <= 0) return props.onInputError('Please input a positive number for the user age.');
+        if (updatedUserObj.age <= 17) return props.onInputError('The staff member must be +18 to work here.');
+        if (updatedUserObj.email.trim().length <= 0) return props.onInputError('Please input a valid email.');
+        if (updatedUserObj.position.trim().length <= 0) return props.onInputError('Please input a valid position.');
+
+        // ------------- PASS NEWUSER DATA UP AND CLOSE FORM -------------- //
         props.editUser(updatedUserObj);
     };
 

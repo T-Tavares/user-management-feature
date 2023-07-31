@@ -2,6 +2,7 @@ import Card from './components/UI/Card';
 import UserForm from './components/UserForm/NewUserForm';
 import UserList from './components/UserList/UserList';
 import Header from './components/Header/Header';
+import Message from './components/UI/Message';
 import {useState} from 'react';
 
 import style from './App.module.scss';
@@ -12,7 +13,7 @@ const usersArr = [
         name: 'Thiago Tavares',
         age: 32,
         email: 'thiago.tavares.freire@gmail.com',
-        position: 'Bartender',
+        position: 'CEO',
         isEditOpen: false,
     },
     {
@@ -28,15 +29,7 @@ const usersArr = [
         name: 'Neil',
         age: 27,
         email: 'neil@gmail.com',
-        position: 'Manager',
-        isEditOpen: false,
-    },
-    {
-        id: '978072821263146',
-        name: 'John Doe',
-        age: 47,
-        email: 'john@gmail.com',
-        position: 'CEO',
+        position: 'Bar Manager',
         isEditOpen: false,
     },
 ];
@@ -44,6 +37,7 @@ const usersArr = [
 function App(props) {
     const [usersList, setUsersList] = useState(usersArr);
     const [userFormState, setUserFormState] = useState(false);
+    const [errorMessagePopUp, setErrorMessagePopUp] = useState('');
 
     const addNewUserHandler = newUser => setUsersList([newUser, ...usersList]);
 
@@ -75,8 +69,16 @@ function App(props) {
         setUsersList(updatedUsersList);
     };
 
+    const errorMessagePopUpHandler = errorMessage => setErrorMessagePopUp(errorMessage);
+    const closeErrorMessagePopUpHandler = () => setErrorMessagePopUp('');
+
     return (
         <div className={style.app}>
+            {errorMessagePopUp === '' ? (
+                ''
+            ) : (
+                <Message errorMessage={errorMessagePopUp} closeErrorMessage={closeErrorMessagePopUpHandler} />
+            )}
             <Header />
             <Card>
                 {' '}
@@ -84,6 +86,7 @@ function App(props) {
                     userFormState={userFormState}
                     openCloseForm={setUserFormState}
                     getNewUser={addNewUserHandler}
+                    onInputError={errorMessagePopUpHandler}
                 />
             </Card>
 
@@ -93,6 +96,7 @@ function App(props) {
                     sendEditUserStateUp={userEditStateHandler}
                     deleteUser={deleteUserHandler}
                     editUser={editUserHandler}
+                    onInputError={errorMessagePopUpHandler}
                 />
             </Card>
         </div>

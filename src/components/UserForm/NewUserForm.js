@@ -45,6 +45,16 @@ export default function UserForm(props) {
             position: newUserPosition,
         };
 
+        // -------------- ERROR CATCH TO RENDER ERROR POPUP --------------- //
+
+        if (newUser.name.trim().length <= 0) return props.onInputError('Please input a valid Name.');
+        if (newUser.age <= 0) return props.onInputError('Please input a positive number for the user age.');
+        if (newUser.age <= 17) return props.onInputError('The staff member must be +18 to work here.');
+        if (newUser.email.trim().length <= 0) return props.onInputError('Please input a valid email.');
+        if (newUser.position.trim().length <= 0) return props.onInputError('Please input a valid position.');
+
+        // ------------- PASS NEWUSER DATA UP AND CLOSE FORM -------------- //
+
         props.getNewUser(newUser);
         openCloseFormHandler();
     }
@@ -72,6 +82,7 @@ export default function UserForm(props) {
                 className={style.age}
                 type="number"
                 placeholder="Age"
+                // min={0} Alternative to the MessageErrorPopUp
             />
             <input
                 onChange={newUserEmailHandler}

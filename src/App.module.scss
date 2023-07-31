@@ -31,9 +31,10 @@ body {
         min-height: 100vh;
         width: calc(100vw - 4vh);
         padding: 2vh;
-
-        border-radius: 20px;
+        border-radius: 0;
     }
+
+    box-shadow: 0 0 200px #2b1800;
 }
 .internal-card {
     display: flex;

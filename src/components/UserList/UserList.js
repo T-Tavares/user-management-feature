@@ -16,6 +16,7 @@ export default function UserList(props) {
                     sendEditUserStateUp={userEditStateHandler}
                     deleteUser={props.deleteUser}
                     editUser={props.editUser}
+                    onInputError={props.onInputError}
                 />
             );
         }

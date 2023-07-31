@@ -35,6 +35,9 @@
     .age {
         width: 15%;
     }
+    .email {
+        width: 80%;
+    }
 
     button {
         position: relative;
@@ -51,7 +54,7 @@
     .accept-btn,
     .cancel-btn,
     .delete-user-btn {
-        flex: 1 0 30%;
+        flex: 1 0 33%;
     }
     .delete-user-btn {
         border-radius: 0 0 0 10px;
