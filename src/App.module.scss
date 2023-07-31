@@ -29,8 +29,9 @@ body {
 
     @media (max-width: 500px) {
         min-height: 100vh;
-        width: auto;
-        aspect-ratio: auto;
+        width: calc(100vw - 4vh);
+        padding: 2vh;
+
         border-radius: 20px;
     }
 }

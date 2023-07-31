@@ -7,6 +7,11 @@ button {
     color: #fff;
     font-size: 1.2rem;
     font-weight: 500;
+    @media (max-width: 500px) {
+        height: 35px;
+        font-size: 0.9rem;
+        font-weight: 400;
+    }
 }
 
 input {

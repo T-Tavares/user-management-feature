@@ -4,6 +4,8 @@
     background-color: var(--medium-light-blue);
     width: 100%;
     padding: 0.2rem 1.5rem;
+    padding: 0.51vh 1.5vh;
+
     font-size: 2vh;
     color: var(--very-light-blue);
     align-items: center;
@@ -26,6 +28,15 @@
     &:last-of-type {
         border-radius: 0 0 10px 10px;
         padding-bottom: 1vh;
+    }
+    &:only-child,
+    &:only-of-type {
+        border-radius: 10px;
+        padding: 1vh;
+    }
+
+    @media (max-width: 500px) {
+        padding: 0.51vh 1.5vh;
     }
 
     // To be used with the edit user form
