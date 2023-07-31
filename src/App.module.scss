@@ -5,6 +5,7 @@
     --deep-blue: #2e5e8c;
     --moderate-blue: #527da9;
     --light-blue: #779cc6;
+    --medium-light-blue: #4d789e;
     --very-light-blue: #a1bbd9;
 }
 
@@ -14,12 +15,28 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+
+    @media (max-width: 500px) {
+        align-items: start;
+    }
 }
 .app {
-    height: 80vh;
     aspect-ratio: 1/1;
+    width: 80vh;
     background-color: var(--moderate-blue);
     border-radius: 20px;
-    border: 1px solid var(--dark-blue);
     padding: 3vh;
+
+    @media (max-width: 500px) {
+        min-height: 100vh;
+        width: auto;
+        aspect-ratio: auto;
+        border-radius: 20px;
+    }
+}
+.internal-card {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--medium-light-blue);
+    border-radius: 10px;
 }

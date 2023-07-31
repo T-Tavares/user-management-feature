@@ -1,0 +1,73 @@
+button {
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--dark-blue);
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+input {
+    outline: none;
+    border: none;
+}
+
+.user-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    border-radius: 15px;
+
+    input {
+        width: 100%;
+        height: 35px;
+        border-radius: 10px;
+        padding: 0 1rem;
+
+        flex-grow: 1;
+    }
+    .name {
+        width: 70%;
+        flex: 1 0 50%;
+    }
+    .age {
+        width: 10%;
+    }
+    .email {
+        width: 50%;
+        flex: 1 0 30%;
+    }
+    .position {
+        width: 30%;
+        flex: 1 0 30%;
+    }
+
+    .close {
+        width: fit-content;
+        flex: 1 0 20%;
+
+        background-color: #2b4050;
+
+        border-radius: 0 10px 10px 0;
+        margin-left: -10px;
+    }
+
+    .add-new-user {
+        width: fit-content;
+        flex: 1 0 50%;
+
+        border-radius: 10px 0 0 10px;
+    }
+
+    .close,
+    .add-new-user {
+        @media (max-width: 500px) {
+            height: 35px;
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+    }
+}
