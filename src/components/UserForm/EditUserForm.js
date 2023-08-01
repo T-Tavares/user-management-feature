@@ -1,18 +1,33 @@
+// --------------------------- IMPORTS ---------------------------- //
+
 import style from './EditUserForm.module.scss';
 import {useState} from 'react';
 
+// ---------------------------------------------------------------- //
+
 export default function EditUserForm(props) {
+    // --------------------- PROPS DECONSTRUCTION --------------------- //
+
     const {id, name, age, email, position} = props.user;
+
+    // ------------------------- REACT HOOKS -------------------------- //
 
     const [editName, setEditName] = useState(name);
     const [editAge, setEditAge] = useState(age);
     const [editPosition, setEditPosition] = useState(position);
     const [editEmail, setEditEmail] = useState(email);
 
+    // --------------------------- HANDLERS --------------------------- //
+
     const setEditNameHandler = e => setEditName(e.target.value);
     const setEditAgeHandler = e => setEditAge(e.target.value);
     const setEditPositionHandler = e => setEditPosition(e.target.value);
     const setEditEmailHandler = e => setEditEmail(e.target.value);
+
+    const deleteUserHandler = e => {
+        e.preventDefault();
+        props.deleteUser(id);
+    };
 
     const editUserFormHandler = e => {
         e.preventDefault();
@@ -36,10 +51,10 @@ export default function EditUserForm(props) {
         props.editUser(updatedUserObj);
     };
 
-    function deleteUserHandler(e) {
-        e.preventDefault();
-        props.deleteUser(id);
-    }
+    // ---------------------------------------------------------------- //
+    // --------------------- RETURNING COMPONENT ---------------------- //
+    // ---------------------------------------------------------------- //
+
     return (
         <form onSubmit={editUserFormHandler} className={style['user-edit-form']} action="submit">
             <input

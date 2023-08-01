@@ -1,63 +1,56 @@
+// ---------------------------------------------------------------- //
+// --------------------------- IMPORTS ---------------------------- //
+// ---------------------------------------------------------------- //
+
+// -------------------------- COMPONENTS -------------------------- //
+
 import Card from './components/UI/Card';
 import UserForm from './components/UserForm/NewUserForm';
 import UserList from './components/UserList/UserList';
 import Header from './components/Header/Header';
 import Message from './components/UI/Message';
+
+// ---------------------------- REACT ----------------------------- //
 import {useState} from 'react';
 
+// ------------------- MODULES | HELPERS | DATA ------------------- //
+
+import {usersData} from './data/usersList';
 import style from './App.module.scss';
 
-const usersArr = [
-    {
-        id: '28098965119384',
-        name: 'Thiago Tavares',
-        age: 32,
-        email: 'thiago.tavares.freire@gmail.com',
-        position: 'CEO',
-        isEditOpen: false,
-    },
-    {
-        id: '6512258193052',
-        name: 'Alina',
-        age: 27,
-        email: 'alina@gmail.com',
-        position: 'Manager',
-        isEditOpen: false,
-    },
-    {
-        id: '53156962376074',
-        name: 'Neil',
-        age: 27,
-        email: 'neil@gmail.com',
-        position: 'Bar Manager',
-        isEditOpen: false,
-    },
-];
+// ---------------------------------------------------------------- //
+// ---------------------------------------------------------------- //
 
-function App(props) {
-    const [usersList, setUsersList] = useState(usersArr);
+function App() {
+    // ------------------------- STATE HOOKS -------------------------- //
+
+    const [usersList, setUsersList] = useState(usersData);
     const [userFormState, setUserFormState] = useState(false);
     const [errorMessagePopUp, setErrorMessagePopUp] = useState('');
 
+    // ------------------- NEW USER FORM - HANDLER -------------------- //
+
     const addNewUserHandler = newUser => setUsersList([newUser, ...usersList]);
 
-    const deleteUserHandler = id => {
-        const userIndex = usersList.findIndex(usr => usr.id === id);
-        usersList.splice(userIndex, 1);
-        setUsersList([...usersList]);
-    };
+    // ------------------ EDIT USER FORM - HANDLERS ------------------- //
 
-    const userEditStateHandler = data => {
+    const openEditUserFormHandler = id => {
         // handle data on userList state
         setUsersList(
             usersList.map(usr => {
-                if (usr.email === data) {
+                if (usr.id === id) {
                     if (usr.isEditOpen === false) usr.isEditOpen = true;
                     else usr.isEditOpen = false;
                 }
                 return usr;
             })
         );
+    };
+
+    const deleteUserHandler = id => {
+        const userIndex = usersList.findIndex(usr => usr.id === id);
+        usersList.splice(userIndex, 1);
+        setUsersList([...usersList]);
     };
 
     const editUserHandler = updatedUser => {
@@ -69,8 +62,14 @@ function App(props) {
         setUsersList(updatedUsersList);
     };
 
+    // ------------------- ERROR MESSAGE - HANDLERS ------------------- //
+
     const errorMessagePopUpHandler = errorMessage => setErrorMessagePopUp(errorMessage);
     const closeErrorMessagePopUpHandler = () => setErrorMessagePopUp('');
+
+    // ---------------------------------------------------------------- //
+    // --------------------- RETURNING COMPONENT ---------------------- //
+    // ---------------------------------------------------------------- //
 
     return (
         <div className={style.app}>
@@ -93,7 +92,7 @@ function App(props) {
             <Card>
                 <UserList
                     users={usersList}
-                    sendEditUserStateUp={userEditStateHandler}
+                    openEditUserForm={openEditUserFormHandler}
                     deleteUser={deleteUserHandler}
                     editUser={editUserHandler}
                     onInputError={errorMessagePopUpHandler}

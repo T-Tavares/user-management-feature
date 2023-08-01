@@ -1,6 +1,10 @@
+// --------------------------- IMPORTS ---------------------------- //
+
 import style from './NewUserForm.module.scss';
 import {useState} from 'react';
 import {clearInputs, generateUniqueID} from '../../helperFunctions/helperFunctions';
+
+// ---------------------------------------------------------------- //
 
 export default function UserForm(props) {
     // ---------------------------------------------------------------- //
@@ -63,9 +67,13 @@ export default function UserForm(props) {
     // --------------------- RETURNING COMPONENT ---------------------- //
     // ---------------------------------------------------------------- //
 
+    // ------------------- OPEN FORM BUTTON RENDER -------------------- //
+
     if (props.userFormState === false) {
         return <button onClick={() => props.openCloseForm(true)}>+ New User</button>;
     }
+
+    // --------------------- NEW USER FORM RENDER --------------------- //
 
     return (
         <form onSubmit={onAddNewUser} className={style['user-form']} action="submit">
