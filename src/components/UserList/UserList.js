@@ -3,6 +3,7 @@
 import User from './User';
 import EditUserForm from '../UserForm/EditUserForm';
 import style from './UserList.module.scss';
+import {Fragment} from 'react';
 
 // ---------------------------------------------------------------- //
 
@@ -26,7 +27,13 @@ export default function UserList(props) {
                 />
             );
         }
-        return [<User user={usr} key={usr.id} openEditUserForm={openEditUserFormHandler} />, editUserForm];
+
+        return (
+            <Fragment>
+                <User user={usr} key={usr.id} openEditUserForm={openEditUserFormHandler} />
+                {editUserForm}
+            </Fragment>
+        );
     });
 
     // -------------- IF NO USERS => RENDER WELCOME MSG --------------- //
@@ -42,5 +49,6 @@ export default function UserList(props) {
     // --------------------- RETURNING COMPONENT ---------------------- //
     // ---------------------------------------------------------------- //
 
-    return <div className={style['internal-card']}>{usersMappedArray}</div>;
+    return <Fragment>{usersMappedArray}</Fragment>;
+    // return <div className={style['internal-card']}>{usersMappedArray}</div>;
 }

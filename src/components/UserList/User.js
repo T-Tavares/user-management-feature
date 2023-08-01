@@ -15,14 +15,12 @@ export default function User(props) {
     // ---------------------------------------------------------------- //
     return (
         <div className={style.user}>
-            <div>
-                <img className={style.icon} src={userIcon} alt="User Icon" />
-                <p className={style.name}>{name} &nbsp; ></p>
-                <p className={style.position}>{position}</p>
-                <button onClick={() => props.openEditUserForm(id)} className={style['edit-btn']}>
-                    <img className={`${style.edit} ${style.icon}`} src={editIcon} alt="Edit User Icon" />
-                </button>
-            </div>
+            <img className={style.icon} src={userIcon} alt="User Icon" />
+            <p className={style.name}>{name} &nbsp; ></p>
+            <p className={style.position}>{position}</p>
+            <button onClick={() => props.openEditUserForm(id)} className={style['edit-btn']}>
+                <img className={`${style.edit} ${style.icon}`} src={editIcon} alt="Edit User Icon" />
+            </button>
         </div>
     );
 }

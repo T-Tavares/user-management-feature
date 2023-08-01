@@ -91,7 +91,7 @@ export default function EditUserForm(props) {
             <button className={style['accept-btn']} type="submit">
                 Accept
             </button>
-            <button onClick={() => props.sendEditUserStateUp(email)} className={style['cancel-btn']}>
+            <button onClick={() => props.openEditUserForm(id)} className={style['cancel-btn']}>
                 Cancel
             </button>
         </form>
