@@ -5,7 +5,7 @@
 // -------------------------- COMPONENTS -------------------------- //
 
 import Card from './components/UI/Card';
-import UserForm from './components/UserForm/NewUserForm';
+import UserForm from './components/UserForm/NewUserFormRef';
 import UserList from './components/UserList/UserList';
 import Header from './components/Header/Header';
 import Message from './components/UI/Message';
